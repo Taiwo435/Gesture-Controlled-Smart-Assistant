@@ -97,7 +97,7 @@ def trigger_action(fingerCount):
 
     if actionName in action_map:
         # print(f"Action triggered: {actions[fingerCount]}")
-        action_map[fingerCount]()
+        action_map[actionName]()
         last_trigger_time = currentTime
     else:
         print(f"No action mapped for {fingerCount} fingers.")
