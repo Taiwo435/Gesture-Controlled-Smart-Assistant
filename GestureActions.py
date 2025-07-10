@@ -60,7 +60,7 @@ def play_pause_media():
     press_key(VK_MEDIA_PLAY_PAUSE)
 
 
-# Optional: if you want a built-in function map
+#built-in function map
 action_map = {
     "mute_volume": mute_volume,
     "take_screenshot": take_screenshot,
