@@ -24,10 +24,23 @@ cap = cv2.VideoCapture(0)
 cap.set(3, wCam)
 cap.set(4, hCam)
 
-with open("gesture_config.json", "r") as f:
+
+GESTURE_FILE = "gesture_config.json"
+ENABLED_FILE = "enabled_gestures.json"
+
+
+# print(gesture_config_path)
+# print(enabled_gestures_path)
+with open(GESTURE_FILE, "r") as f:
     gesture_config = json.load(f)
+print("gesture_config loaded")
 
+with open(ENABLED_FILE, "r") as f:
+    enabled_gestures = json.load(f)
 
+# print("enabled_gestures loaded")
+
+# print("Starting camera loop...")
 pTime = 0
 
 
@@ -66,7 +79,7 @@ def hand_volume_control(lmList, img):
     cx, cy = (x1 + x2) // 2, (y1 + y2) // 2
     length = math.hypot(x2 - x1, y2 - y1)
 
-    vol = np.interp(length, [8, 150], [minVol, maxVol])
+    vol = np.interp(length, [60, 179], [minVol, maxVol])
 
     currentVolumeTime = time.time()
     volumeChangeThreshold = 1.5
@@ -82,7 +95,7 @@ def hand_volume_control(lmList, img):
         cv2.circle(img, ((x1 + x2) // 2, (y1 + y2) // 2),
                    6, (0, 255, 0), cv2.FILLED)
 
-    cv2.putText(img, f'Volume: {int(np.interp(length, [8, 150], [0, 100]))} %',
+    cv2.putText(img, f'Volume: {int(np.interp(length, [60, 179], [0, 100]))} %',
                 (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2)
 
 
@@ -93,14 +106,20 @@ def trigger_action(fingerCount):
     if currentTime - last_trigger_time < actionCooldown:
         return  # Prevent repeated triggers
 
-    actionName = gesture_config.get(str(fingerCount))
+    gestureKey = str(fingerCount)
+    actionName = gesture_config.get(gestureKey)
+
+    # checking if gesture is enabled
+    if not enabled_gestures.get(gestureKey, True):
+        print(f"Gesture {gestureKey} is disabled.")
+        return
 
     if actionName in action_map:
         # print(f"Action triggered: {actions[fingerCount]}")
         action_map[actionName]()
         last_trigger_time = currentTime
     else:
-        print(f"No action mapped for {fingerCount} fingers.")
+        print(f"No action mapped for {gestureKey} fingers.")
 
 
 while True:
