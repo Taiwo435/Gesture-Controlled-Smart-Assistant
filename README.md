@@ -20,6 +20,7 @@ This Python project lets you adjust volume, skip tracks, open Chrome, and more �
 - 🌐 Launch Google Chrome
 - 📸 Instant screenshot capture
 - 🔧 Easily customizable actions via `gesture_config.json`
+- 🖱️ GUI toggle panel to enable or disable gestures (`GestureToggleGUI.py`)
 
 ---
 
@@ -32,6 +33,8 @@ GestureAssistant/
 ├── GestureActions.py       # Modular system actions (volume, browser, media, etc.)
 ├── gesture_config.json     # Maps finger counts to actions
 ├── HandTrackingModule.py   # Custom hand detection wrapper using MediaPipe
+├── GestureToggleGUI.py     # GUI to toggle gestures on/off
+├── enabled_gestures.json   # Stores which gestures are enabled
 └── README.md               # You are here
 ```
 
@@ -53,6 +56,31 @@ Modify `gesture_config.json` to map number of raised fingers (0–5) to any supp
 ```
 
 You can easily add more actions by editing `GestureActions.py` and referencing them by name here.
+
+---
+
+## 🖱️ GUI: Enable or Disable Gestures Easily
+
+Want more control over which gestures are active?  
+Use the built-in graphical interface to turn gestures on or off in seconds.
+
+---
+
+### 🔧 How It Works
+
+### Run the GUI:
+
+```bash
+python GestureToggleGUI.py
+```
+
+- A window opens showing checkboxes for each gesture (0–5 fingers).
+
+- Checked box = Gesture is enabled
+
+- Unchecked box = Gesture is disabled
+
+- Click "Save & Close" to save changes to enabled_gestures.json.
 
 ---
 
