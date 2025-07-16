@@ -5,26 +5,26 @@ This Python project lets you adjust volume, skip tracks, open Chrome, and more �
 
 ---
 
-## 📽️ Demo
+## Demo
 
 ![Demo GIF](https://user-images.githubusercontent.com/your-demo-link-here.gif)  
 * To do: Add a short screen recording or animated GIF showing you using gestures with action feedback on screen.*
 
 ---
 
-## 🎯 Features
+## Features
 
-- 🤚 Real-time hand gesture recognition using MediaPipe
-- 🔊 Volume control via finger distance
-- 🎵 Media control (Play/Pause, Next, Previous)
-- 🌐 Launch Google Chrome
-- 📸 Instant screenshot capture
-- 🔧 Easily customizable actions via `gesture_config.json`
-- 🖱️ GUI toggle panel to enable or disable gestures (`GestureToggleGUI.py`)
+- Real-time hand gesture recognition using MediaPipe
+- Volume control via finger distance
+- Media control (Play/Pause, Next, Previous)
+- Launch Google Chrome
+- Instant screenshot capture
+- Easily customizable actions via `gesture_config.json`
+- GUI toggle panel to enable or disable gestures (`GestureToggleGUI.py`)
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 GestureAssistant/
@@ -40,7 +40,7 @@ GestureAssistant/
 
 ---
 
-## ⚙️ Gesture-to-Action Mapping
+## Gesture-to-Action Mapping
 
 Modify `gesture_config.json` to map number of raised fingers (0–5) to any supported action:
 
@@ -59,14 +59,14 @@ You can easily add more actions by editing `GestureActions.py` and referencing t
 
 ---
 
-## 🖱️ GUI: Enable or Disable Gestures Easily
+## GUI: Enable or Disable Gestures Easily
 
 Want more control over which gestures are active?  
 Use the built-in graphical interface to turn gestures on or off in seconds.
 
 ---
 
-### 🔧 How It Works
+### How It Works
 
 ### Run the GUI:
 
@@ -84,7 +84,7 @@ python GestureToggleGUI.py
 
 ---
 
-## 🔧 Setup & Installation
+## Setup & Installation
 
 ### Requirements
 
@@ -108,7 +108,7 @@ Make sure your webcam is connected. A window will open displaying your hand with
 
 ---
 
-## 🧠 How It Works
+## How It Works
 
 - Uses **MediaPipe** to detect hand landmarks in real time.
 - Counts raised fingers using landmark positions.
@@ -118,21 +118,21 @@ Make sure your webcam is connected. A window will open displaying your hand with
 
 ---
 
-## 📌 Examples
+## Examples
 
-| Gesture           | Action              |
-|-------------------|---------------------|
-| ✊ (0 fingers)     | Mute system volume  |
-| ☝️ (1 finger)      | Take a screenshot   |
-| ✌️ (2 fingers)     | Next media track    |
-| 🤟 (3 fingers)     | Previous track      |
-| ✋ (4 fingers)     | Open Google Chrome  |
-| 🖐️ (5 fingers)     | Play/Pause media    |
-| 👉🤏 (Thumb + Index only) | Adjust volume based on distance |
+| Gesture            | Action              |
+|--------------------|---------------------|
+| 0 fingers - a fist  | Mute system volume  |
+| 1 finger           | Take a screenshot   |
+| 2 fingers          | Next media track    |
+| 3 fingers          | Previous track      |
+| 4 fingers          | Open Google Chrome  |
+| 5 fingers          | Play/Pause media    |
+| Thumb + Index only | Adjust volume based on distance |
 
 ---
 
-## 🛡️ Error Handling & Stability
+## Error Handling & Stability
 
 - Gesture must be **held steadily** for 0.5s before triggering (prevents false triggers).
 - Includes `try/except` around system actions to handle unsupported platforms or missing applications.
@@ -140,16 +140,15 @@ Make sure your webcam is connected. A window will open displaying your hand with
 
 ---
 
-## 💡 Ideas for Extension
+## Ideas for Extension
 
-- GUI toggle panel for enabling/disabling gestures
 - Gesture training/learning interface
 - Profile switching for different users
 - Integration with smart home APIs (lights, fans, etc.)
 
 ---
 
-## 🧑‍💻 Author
+## Author
 
 **Muzzamil Jolaade**  
 Aspiring software engineer passionate about computer vision, automation, and system-level development.  
@@ -157,6 +156,6 @@ Aspiring software engineer passionate about computer vision, automation, and sys
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the **MIT License**. You are free to use, modify, and distribute it with proper credit.
